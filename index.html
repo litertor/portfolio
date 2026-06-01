@@ -17,399 +17,131 @@
       --text: #e8e8f0;
       --muted: #8888a0;
       --accent: #c8a96e;
-      --accent2: #9b7fd4;
       --radius: 16px;
       --nav-h: 68px;
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
     /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      background: rgba(14,14,16,0.85);
-      backdrop-filter: blur(16px);
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+      background: rgba(14,14,16,0.85); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; z-index: 100;
     }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--text); text-decoration: none; }
     .nav-right { display: flex; align-items: center; gap: 20px; }
 
-    /* social icons */
     .socials { display: flex; align-items: center; gap: 12px; }
     .socials a {
       display: flex; align-items: center; justify-content: center;
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      transition: color .2s, background .2s, border-color .2s;
-      text-decoration: none;
+      width: 34px; height: 34px; border-radius: 8px;
+      background: var(--bg3); border: 1px solid var(--border); color: var(--muted);
+      transition: color .2s, background .2s, border-color .2s; text-decoration: none;
     }
     .socials a:hover { color: var(--accent); border-color: var(--accent); background: rgba(200,169,110,.1); }
     .socials svg { width: 16px; height: 16px; fill: currentColor; }
 
-    /* lang switcher */
     .lang-switcher { display: flex; align-items: center; gap: 4px; }
-    .lang-btn {
-      padding: 5px 10px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      border-radius: 6px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all .2s;
-    }
+    .lang-btn { padding: 5px 10px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; border-radius: 6px; border: 1px solid transparent; background: transparent; color: var(--muted); cursor: pointer; transition: all .2s; }
     .lang-btn:hover { color: var(--text); }
-    .lang-btn.active {
-      background: var(--bg3);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .lang-btn.active { background: var(--bg3); border-color: var(--accent); color: var(--accent); }
 
     /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: calc(var(--nav-h) + 60px) 40px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(155,127,212,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 70%, rgba(200,169,110,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
+    #hero { min-height: 100vh; display: flex; align-items: center; padding: calc(var(--nav-h) + 60px) 40px 80px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(155,127,212,0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 70%, rgba(200,169,110,0.08) 0%, transparent 60%); pointer-events: none; }
     .hero-inner { max-width: 800px; position: relative; }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 24px;
-    }
-    .hero-tag::before {
-      content: '';
-      display: block;
-      width: 24px; height: 1px;
-      background: var(--accent);
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-    h1 em {
-      font-style: normal;
-      color: var(--text);
-    }
-
-    .hero-desc {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 40px;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      padding: 14px 28px;
-      background: var(--accent);
-      color: #0e0e10;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: opacity .2s, transform .2s;
-    }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 24px; }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+    .hero-desc { font-size: 1.1rem; color: var(--muted); max-width: 560px; margin-bottom: 40px; }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary { padding: 14px 28px; background: var(--accent); color: #0e0e10; font-weight: 600; font-size: 0.9rem; border-radius: 10px; border: none; cursor: pointer; text-decoration: none; transition: opacity .2s, transform .2s; }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-
-    .btn-secondary {
-      padding: 14px 28px;
-      background: transparent;
-      color: var(--text);
-      font-weight: 500;
-      font-size: 0.9rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      text-decoration: none;
-      transition: border-color .2s, transform .2s;
-    }
+    .btn-secondary { padding: 14px 28px; background: transparent; color: var(--text); font-weight: 500; font-size: 0.9rem; border-radius: 10px; border: 1px solid var(--border); cursor: pointer; text-decoration: none; transition: border-color .2s, transform .2s; }
     .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
 
     /* ── SECTIONS ── */
     section { padding: 100px 40px; }
     section:nth-child(even) { background: var(--bg2); }
-
     .section-inner { max-width: 1100px; margin: 0 auto; }
-
     .section-header { margin-bottom: 56px; }
-    .section-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 700;
-      line-height: 1.2;
-    }
-    .section-lead {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin-top: 12px;
-    }
+    .section-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; }
+    .section-lead { font-size: 1rem; color: var(--muted); max-width: 600px; margin-top: 12px; }
 
     /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     @media(max-width:720px){ .about-grid { grid-template-columns:1fr; gap:40px; } }
-
-    .about-text p {
-      color: var(--muted);
-      margin-bottom: 16px;
-      font-size: 1rem;
-    }
+    .about-text p { color: var(--muted); margin-bottom: 16px; font-size: 1rem; }
     .about-text p:last-child { margin-bottom: 0; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .skill-item { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; font-size: 0.85rem; color: var(--text); }
+    .skill-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.85rem;
-      color: var(--text);
-    }
-    .skill-item::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    /* ── PORTFOLIO TABS ── */
-    .tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-    .tab-btn {
-      padding: 8px 20px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all .2s;
-    }
+    /* ── TABS ── */
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .tab-btn { padding: 8px 20px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all .2s; }
     .tab-btn:hover { color: var(--text); border-color: rgba(255,255,255,.15); }
-    .tab-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #0e0e10;
-      font-weight: 600;
-    }
-
+    .tab-btn.active { background: var(--accent); border-color: var(--accent); color: #0e0e10; font-weight: 600; }
     .tab-pane { display: none; }
     .tab-pane.active { display: block; }
 
     /* ── CARDS ── */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: transform .25s, border-color .25s, box-shadow .25s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(200,169,110,.3);
-      box-shadow: 0 16px 40px rgba(0,0,0,.4);
-    }
-
-    .card-icon {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      background: linear-gradient(135deg, rgba(155,127,212,.12), rgba(200,169,110,.1));
-      border-bottom: 1px solid var(--border);
-    }
-
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; cursor: pointer; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(200,169,110,.3); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+    .card-icon { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, rgba(155,127,212,.12), rgba(200,169,110,.1)); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .card-icon img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .card-icon .emoji { position: relative; z-index: 1; }
     .card-body { padding: 20px; }
-    .card-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .card-desc {
-      font-size: 0.83rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-    .card-tag {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 3px 10px;
-      background: rgba(200,169,110,.12);
-      border-radius: 4px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      text-transform: uppercase;
-    }
+    .card-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+    .card-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+    .card-tag { display: inline-block; margin-top: 12px; padding: 3px 10px; background: rgba(200,169,110,.12); border-radius: 4px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); text-transform: uppercase; }
+    .card-open-hint { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 0.75rem; color: var(--muted); }
+    .card-open-hint::after { content: '↗'; }
+
+    /* ── MODAL ── */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; width: 100%; max-width: 860px; max-height: 90vh; overflow-y: auto; transform: translateY(20px); transition: transform .3s; }
+    .modal-overlay.open .modal { transform: none; }
+    .modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 28px 28px 0; }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; }
+    .modal-close { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg3); color: var(--muted); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: color .2s, border-color .2s; }
+    .modal-close:hover { color: var(--text); border-color: var(--accent); }
+    .modal-desc { padding: 12px 28px 20px; color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+    .modal-gallery { padding: 0 28px 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+    .modal-gallery img { width: 100%; border-radius: 10px; border: 1px solid var(--border); cursor: zoom-in; transition: transform .2s; display: block; }
+    .modal-gallery img:hover { transform: scale(1.02); }
+    .modal-gallery.single { grid-template-columns: 1fr; }
+    .modal-gallery.single img { max-height: 70vh; object-fit: contain; cursor: default; }
+    .modal-gallery.single img:hover { transform: none; }
+
+    /* lightbox */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 300; display: flex; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
+    .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
 
     /* ── CONTACT ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     @media(max-width:600px){ .contact-grid { grid-template-columns:1fr; } }
-
-    .contact-card {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 20px 24px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color .2s, transform .2s;
-    }
-    .contact-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .contact-icon {
-      width: 44px; height: 44px;
-      border-radius: 10px;
-      background: rgba(200,169,110,.12);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.2rem;
-    }
+    .contact-card { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: var(--text); transition: border-color .2s, transform .2s; }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .contact-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(200,169,110,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem; }
     .contact-info { min-width: 0; }
-    .contact-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 3px;
-    }
-    .contact-value {
-      font-size: 0.9rem;
-      font-weight: 500;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    .contact-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .contact-value { font-size: 0.9rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* ── FOOTER ── */
-    footer {
-      padding: 40px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: gap;
-      gap: 16px;
-    }
+    footer { padding: 40px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .footer-copy { font-size: 0.82rem; color: var(--muted); }
 
-    /* ── SCROLL REVEAL ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── MOBILE NAV ── */
     @media(max-width:600px){
       nav { padding: 0 20px; }
       .nav-logo { font-size: 1rem; }
@@ -417,6 +149,8 @@
       section { padding: 70px 20px; }
       #hero { padding: calc(var(--nav-h) + 40px) 20px 60px; }
       footer { padding: 30px 20px; flex-direction: column; align-items: flex-start; }
+      .modal-gallery { grid-template-columns: 1fr; }
+      .modal-title { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -427,15 +161,12 @@
   <a href="#hero" class="nav-logo">Liana Janina</a>
   <div class="nav-right">
     <div class="socials">
-      <!-- LinkedIn -->
       <a href="https://www.linkedin.com/in/liana-janina-3ba6a9241/" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
-      <!-- Instagram -->
       <a href="https://www.instagram.com/litertor" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
       </a>
-      <!-- Unsplash -->
       <a href="https://unsplash.com/@litertor" target="_blank" rel="noopener" aria-label="Unsplash">
         <svg viewBox="0 0 24 24"><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg>
       </a>
@@ -452,11 +183,9 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="hero-tag" data-i18n="hero.tag">Мультимедиа · Дизайн · Видео</div>
-    <h1 data-i18n-html="hero.title">Liana <em>Janina</em></h1>
-    <p class="hero-desc" data-i18n="hero.desc">
-      Создаю визуальные истории. Специализируюсь на графическом дизайне, фотографии и работе с мультикультурным контентом.
-    </p>
+    <div class="hero-tag" data-i18n="hero.tag">Multimedia Specialist | Graphic Designer</div>
+    <h1 data-i18n="hero.title">Liana Janina</h1>
+    <p class="hero-desc" data-i18n="hero.desc">Создаю визуальные истории. Специализируюсь на графическом дизайне, фотографии и работе с мультикультурным контентом.</p>
     <div class="hero-cta">
       <a href="#portfolio" class="btn-primary" data-i18n="hero.cta1">Посмотреть работы</a>
       <a href="#contact" class="btn-secondary" data-i18n="hero.cta2">Связаться</a>
@@ -473,15 +202,9 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p data-i18n="about.p1">
-          Я специалист в области мультимедиа и цифровых медиа с фокусом на графическом дизайне, видеопроизводстве, фотографии и веб-разработке.
-        </p>
-        <p data-i18n="about.p2">
-          Моя сила — в деталях: правильный шрифт, точный цвет, ритм кадра. Работаю с брендами, создаю контент для разных культур и аудиторий.
-        </p>
-        <p data-i18n="about.p3">
-          Владею русским, английским и испанским — это даёт мне возможность работать с проектами из разных стран и культурных контекстов.
-        </p>
+        <p data-i18n="about.p1">Я специалист в области мультимедиа и цифровых медиа с фокусом на графическом дизайне, видеопроизводстве, фотографии и веб-разработке.</p>
+        <p data-i18n="about.p2">Моя сила — в деталях: правильный шрифт, точный цвет, ритм кадра. Работаю с брендами, создаю контент для разных культур и аудиторий.</p>
+        <p data-i18n="about.p3">Владею русским, английским, испанским и эстонским — это даёт мне возможность работать с проектами из разных стран и культурных контекстов.</p>
       </div>
       <div class="skills-grid reveal">
         <div class="skill-item" data-i18n="skill.design">Графический дизайн</div>
@@ -503,7 +226,7 @@
     <div class="section-header reveal">
       <div class="section-tag" data-i18n="portfolio.tag">Портфолио</div>
       <h2 data-i18n="portfolio.title">Мои работы</h2>
-      <p class="section-lead" data-i18n="portfolio.lead">Проекты в области дизайна, видео, фотографии и презентаций.</p>
+      <p class="section-lead" data-i18n="portfolio.lead">Нажмите на карточку, чтобы посмотреть проект.</p>
     </div>
 
     <div class="tabs reveal">
@@ -516,52 +239,52 @@
     <!-- Design -->
     <div class="tab-pane active" id="tab-design">
       <div class="cards-grid">
-        <div class="card reveal">
-          <div class="card-icon">🃏</div>
+        <div class="card reveal" data-project="d1">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCjjiUG4s00be92RhwKcOzsR2hrDsrWlXdametoZYN62kH2VMxzhA-48bamgvUhSNG-vRgRoWxpmQi3RpndApO1H8nDwcNrouRGX5MJT2VWQY_QdR75_5ECcfKMAsXzYPHBZbbmgKJD9RINSJdFQ7eFfMJmf7VBV6tMZ_oaJHs2gLS2r2oyzoUh9n5Dx6iLIvIjFlmqZwZjrVx2jnbaELazYDjupkbITWMemrk=w1280" alt="" loading="lazy" /><span class="emoji" style="display:none">🃏</span></div>
           <div class="card-body">
             <div class="card-title" data-i18n="d1.title">Визитные карточки для цветочного</div>
             <div class="card-desc" data-i18n="d1.desc">Яркий профессиональный дизайн с соблюдением фирменного стиля — привлекает внимание и остаётся в памяти.</div>
-            <span class="card-tag" data-i18n="tag.brand">Брендинг</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon">🏠</div>
+        <div class="card reveal" data-project="d2">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCQLc6aOuKh6FhO1ZsNGozyPfRBAXgeOmLUm-6gRzNYumPKNVQ03VKsxtJVx_MdX8Vn3Jot5YSV_Y4l2d3n-ooffLrvNeRIFfzKKuwL8G9nqedqNlkGy-7jkiKhw_sLLMNN-bZPsTMJ6O1c5jH68OxNVs6VT-Qpw5jjafuKRrnncEwSVDoIrakJ37ELwx-sDCWD02yDtKXIWYriM49CmPRNbOy6IQWRfLCr=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="d2.title">Casa Blanca Clean</div>
             <div class="card-desc" data-i18n="d2.desc">Фирменный стиль для клининговой компании: визуальная чистота, современная эстетика и мгновенная узнаваемость.</div>
-            <span class="card-tag" data-i18n="tag.identity">Айдентика</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon">🚗</div>
+        <div class="card reveal" data-project="d3">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDl7ef3l-8-1MqOdKaeu2LzZlCsbMlUb7VDXuHfEULivopOVLEhW2xY6atXNpO9rPokmpAlcmwA9dmEgszNUfO2Up-KYkLDydZea2BDNjcka8wsnRh5b4plERV3HZMvlhug7g3E0RN9GocIJ_4U8hJpeZbY59Fg9zm_RhfRjRyFc1lWKJbLrkJwxyoxP7eBGEL66lcYUhUo0y5OEeGmGfaCdFiWan1Yw6MeCjg=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="d3.title">Costa del Sol Transfer</div>
             <div class="card-desc" data-i18n="d3.desc">Рекламный макет трансфер-сервиса: акцент на преимуществах, комфорт и профессиональная подача.</div>
-            <span class="card-tag" data-i18n="tag.promo">Промо</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon">🍵</div>
+        <div class="card reveal" data-project="d4">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAZEsJwFpl4HudXSUJPVzssQwogjAz7Yazn0krEEA1j7VqRfLWF9qNGzXaN1utlKh7nAEMIkXWv07XQj4AkSKIEcV7l9gT5edrbpbiXyVxihN-wa9FitjJyv_yeQlQgI0RAfAIbAiamsrR4VbF0R2gKlP46Dk_q5kBCEBpyayCK1MEK_jE9Lr26kxxmWV89XYinsdqft77-LXC5XsPgfzufLqSIVH9zQTh845k=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="d4.title">MONK Tea — этикетки</div>
             <div class="card-desc" data-i18n="d4.desc">Серия дизайна этикеток с продуманной цветовой палитрой, типографикой и авторскими иллюстрациями.</div>
-            <span class="card-tag" data-i18n="tag.packaging">Упаковка</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon">✂️</div>
+        <div class="card reveal" data-project="d5">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBQI-yoF3IsidXOP91z6F_gS_ebOSylT2lxDoVQz2w42GvhwaVpj2GSApTYPCzGkZ-FE3ICHn1xTuD0E-KyF7-GvDOAf-07jAYwnnD5wjbt4IPRaa8rhoiOrCn0t0hq8DXfacJCZF9mJllEVzFbX80NmT3ItCbkopeA3QjfJ1nskDfrj0UqoeeDM_6T312l_HQGfEZVZ-KF1F5IIytRT7YjLlVUif3Rm7kmC9A=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="d5.title">Salon de Margo — логотип</div>
             <div class="card-desc" data-i18n="d5.desc">Несколько элегантных вариаций логотипа в фирменных цветах салона, отражающих современную эстетику.</div>
-            <span class="card-tag" data-i18n="tag.logo">Логотип</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon">📱</div>
+        <div class="card reveal" data-project="d6">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDEmQ02CpoOwh832zjuNM4x0HOM4dWEXwfLBdeikC4t3JjEV_cADFmD4wu5ffjGHkUme9v6soRmXFdYX7O-HdqBOAUN7f2dtV3VXOX-LsguLY5dxmjXbbYrrKt86Yp88E7_dvSU5PdTVJPBAIWExtyy7PMf7jsT4lSsJB8gRm_euqoDBwu1UKaz9lGqV3vrbYcAT3tvwBS-E7Q5ee69Zd-xLUbNdZ3lamM70sg=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="d6.title">Реклама в соцсетях</div>
             <div class="card-desc" data-i18n="d6.desc">Промо-макеты для Instagram и Facebook — акции, спецпредложения, оформление ленты под стиль бренда.</div>
-            <span class="card-tag" data-i18n="tag.smm">SMM</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
       </div>
@@ -570,28 +293,28 @@
     <!-- Video -->
     <div class="tab-pane" id="tab-video">
       <div class="cards-grid">
-        <div class="card reveal">
-          <div class="card-icon">🎉</div>
+        <div class="card reveal" data-project="v1">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDWgj-WsxxD2KCELwjFmyBD5jIb2h95xVM3iJMuu7T8CS8RJ9M8S19md42qZfx9fuGBsBWmsToNKWqvgEjCfz4AgtBf_aKx_IqHy4SrG55y2qJ_OmZE8VDBwHjQsosTmgJZqETCiHpaVEG1XYCSRVsvXaYrNcQNGrbH0sUupTl0Y30CDCkMAwdm6LGKsNI5hZsmTCrctMXSbJR9ZSQvcrBjC0s7gaqG7vnK0ZI=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="v1.title">Детские приглашения (ES)</div>
             <div class="card-desc" data-i18n="v1.desc">Приглашения на вечеринки на испанском языке с ярким персонажным дизайном и лёгкой анимацией.</div>
-            <span class="card-tag" data-i18n="tag.anim">Анимация</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon">🍕</div>
+        <div class="card reveal" data-project="v2">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBoq-pb2EovpfbFDYROV5C1YUVIHdYAFRzlZBma86C0xMN-t2Vl8qMX9pa-zjK7eYV_hlIq3JPUF2NwTfvtuY1JV4Wut_fnvhMmXMcwpYEfWynzP_Ikjf3RNtW4qbA3DIDGgDeJsq8ZqzcCkUAd0p6q1ucrSd-TYJykLzVvm5ZBIRZXQbHY3uJ8S2klkyl6xMVAIcs06w_Sq7Cnq01BpXUcf-AlHKyidDWW=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="v2.title">Промо-видео для ресторана</div>
             <div class="card-desc" data-i18n="v2.desc">Мобильный видеоконтент, адаптированный под формат сторис — динамично, аппетитно, вовлекающе.</div>
-            <span class="card-tag" data-i18n="tag.video">Видео</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon">💬</div>
+        <div class="card reveal" data-project="v3">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUC7UV_dto3MK_ExXnpQPcP7MMdob6v4KElY-ioIpi0Pu3F6KkyLu-oT-C_1cd_1Q3pbdgsMQYN_xWb0HdH-kcjPJZMkEq4-t4I897cPG1irLDKpgCVyo6URMwv7nBeg6DR0E7eKmhrMU9cZVUz8HHsbT-fD8h_Wmi3FMQuVMuZfYKXglNJRgmpa1F8Xg8WzdIRIvrGk-5vn23qPFEMgaSqTpmj1nszmxqy=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="v3.title">Перевод и субтитры</div>
             <div class="card-desc" data-i18n="v3.desc">Авторские проекты по созданию субтитров и переводу видеоконтента — аккуратно, в ритм речи.</div>
-            <span class="card-tag" data-i18n="tag.sub">Субтитры</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
       </div>
@@ -600,12 +323,12 @@
     <!-- Photo -->
     <div class="tab-pane" id="tab-photo">
       <div class="cards-grid">
-        <div class="card reveal">
-          <div class="card-icon">📷</div>
+        <div class="card reveal" data-project="p1">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDZQgv-3K6d_swKKy1PzWZ1O9I_4ebXNDyfvPSRSBwbDr2WpQnnXTmXy5Jy1lwpcMmmM-ZQJoMYAQyGf_tF9QwVI3aJPVTEtK50rBE1m4Q54qt0TiKdRz6FWuz7JzOdVe8wWUgA2-b1Z24Kx7Uw7LlI9ZdEKcwc8U7uDpot9hBc3rLUdi7TpE6ybA1fOf1Rfc-m3On9hM5mMjotQFqVLEI7qQ3aeue_SSoMc-o=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="p1.title">Портфолио на Unsplash</div>
             <div class="card-desc" data-i18n="p1.desc">Авторские фотографии, опубликованные в открытом доступе на платформе Unsplash.</div>
-            <a href="https://unsplash.com/@litertor" target="_blank" rel="noopener" class="card-tag" style="text-decoration:none;" data-i18n="p1.link">Смотреть →</a>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
       </div>
@@ -614,12 +337,12 @@
     <!-- Presentations -->
     <div class="tab-pane" id="tab-pres">
       <div class="cards-grid">
-        <div class="card reveal">
-          <div class="card-icon">🎓</div>
+        <div class="card reveal" data-project="pr1">
+          <div class="card-icon"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDmQpE_7O8hflqbUPF3_tyX8-OMtDNpZ1A5gYM3I3RyYBKMrhGAc5I5gWxmK4zR5YUbuTTCzlYtYlhKREM42xFn6DBjT4YHlrvLLT4-dF0fzdsR7Cy0JJst4kmT81qXp3scJl-JNcJWj_woyKmevs5Vylv4jqTGeRejOoo0Xhr9KWbCa-96foW7i8vfHRyjDN6WdNwf3D4jW3vOpsck_246D_pp5ntW2aA8=w1280" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="pr1.title">Защита практики</div>
             <div class="card-desc" data-i18n="pr1.desc">Комплексная презентация по итогам стажировки в детском центре дополнительного образования.</div>
-            <span class="card-tag" data-i18n="tag.pres">Презентация</span>
+            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
       </div>
@@ -632,41 +355,32 @@
   <div class="section-inner">
     <div class="section-header reveal">
       <div class="section-tag" data-i18n="contact.tag">Контакты</div>
-      <h2 data-i18n="contact.title">Давайте работать вместе</h2>
-      <p class="section-lead" data-i18n="contact.lead">Открыта для новых проектов — пишите в любое удобное место.</p>
+      <h2 data-i18n="contact.title">Социальные сети</h2>
     </div>
     <div class="contact-grid reveal">
       <a href="https://www.linkedin.com/in/liana-janina-3ba6a9241/" target="_blank" rel="noopener" class="contact-card">
-        <div class="contact-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </div>
+        <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
         <div class="contact-info">
           <div class="contact-label">LinkedIn</div>
-          <div class="contact-value">liana-janina-3ba6a9241</div>
+          <div class="contact-value">Liana Janina</div>
         </div>
       </a>
       <a href="https://www.instagram.com/litertor" target="_blank" rel="noopener" class="contact-card">
-        <div class="contact-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </div>
+        <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
         <div class="contact-info">
           <div class="contact-label">Instagram</div>
           <div class="contact-value">@litertor</div>
         </div>
       </a>
       <a href="https://unsplash.com/@litertor" target="_blank" rel="noopener" class="contact-card">
-        <div class="contact-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg>
-        </div>
+        <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg></div>
         <div class="contact-info">
           <div class="contact-label">Unsplash</div>
           <div class="contact-value">@litertor</div>
         </div>
       </a>
       <a href="mailto:lianajanina2@gmail.com" class="contact-card">
-        <div class="contact-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </div>
+        <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
         <div class="contact-info">
           <div class="contact-label" data-i18n="contact.email">Email</div>
           <div class="contact-value">lianajanina2@gmail.com</div>
@@ -678,50 +392,109 @@
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
-  <span class="footer-copy" data-i18n="footer.copy">© 2024 Liana Janina. Все права защищены.</span>
+  <span class="footer-copy" data-i18n="footer.copy">© 2025 Liana Janina. Все права защищены.</span>
   <div class="socials">
-    <a href="https://www.linkedin.com/in/liana-janina-3ba6a9241/" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/litertor" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-    <a href="https://unsplash.com/@litertor" target="_blank" rel="noopener" aria-label="Unsplash">
-      <svg viewBox="0 0 24 24"><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg>
-    </a>
+    <a href="https://www.linkedin.com/in/liana-janina-3ba6a9241/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <a href="https://www.instagram.com/litertor" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+    <a href="https://unsplash.com/@litertor" target="_blank" rel="noopener" aria-label="Unsplash"><svg viewBox="0 0 24 24"><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg></a>
   </div>
 </footer>
 
+<!-- ══════════ MODAL ══════════ -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title"></div>
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-desc" id="modal-desc"></div>
+    <div class="modal-gallery" id="modal-gallery"></div>
+  </div>
+</div>
+
 <!-- ══════════ JS ══════════ -->
 <script>
+/* ── PROJECT DATA ── */
+const GS = 'https://lh3.googleusercontent.com/sitesv/';
+const projects = {
+  d1: {
+    images: [
+      GS+'AA5AbUCjjiUG4s00be92RhwKcOzsR2hrDsrWlXdametoZYN62kH2VMxzhA-48bamgvUhSNG-vRgRoWxpmQi3RpndApO1H8nDwcNrouRGX5MJT2VWQY_QdR75_5ECcfKMAsXzYPHBZbbmgKJD9RINSJdFQ7eFfMJmf7VBV6tMZ_oaJHs2gLS2r2oyzoUh9n5Dx6iLIvIjFlmqZwZjrVx2jnbaELazYDjupkbITWMemrk=w1280',
+      GS+'AA5AbUCQLc6aOuKh6FhO1ZsNGozyPfRBAXgeOmLUm-6gRzNYumPKNVQ03VKsxtJVx_MdX8Vn3Jot5YSV_Y4l2d3n-ooffLrvNeRIFfzKKuwL8G9nqedqNlkGy-7jkiKhw_sLLMNN-bZPsTMJ6O1c5jH68OxNVs6VT-Qpw5jjafuKRrnncEwSVDoIrakJ37ELwx-sDCWD02yDtKXIWYriM49CmPRNbOy6IQWRfLCr=w1280',
+    ]
+  },
+  d2: {
+    images: [
+      GS+'AA5AbUDl7ef3l-8-1MqOdKaeu2LzZlCsbMlUb7VDXuHfEULivopOVLEhW2xY6atXNpO9rPokmpAlcmwA9dmEgszNUfO2Up-KYkLDydZea2BDNjcka8wsnRh5b4plERV3HZMvlhug7g3E0RN9GocIJ_4U8hJpeZbY59Fg9zm_RhfRjRyFc1lWKJbLrkJwxyoxP7eBGEL66lcYUhUo0y5OEeGmGfaCdFiWan1Yw6MeCjg=w1280',
+      GS+'AA5AbUAZEsJwFpl4HudXSUJPVzssQwogjAz7Yazn0krEEA1j7VqRfLWF9qNGzXaN1utlKh7nAEMIkXWv07XQj4AkSKIEcV7l9gT5edrbpbiXyVxihN-wa9FitjJyv_yeQlQgI0RAfAIbAiamsrR4VbF0R2gKlP46Dk_q5kBCEBpyayCK1MEK_jE9Lr26kxxmWV89XYinsdqft77-LXC5XsPgfzufLqSIVH9zQTh845k=w1280',
+    ]
+  },
+  d3: {
+    images: [
+      GS+'AA5AbUBQI-yoF3IsidXOP91z6F_gS_ebOSylT2lxDoVQz2w42GvhwaVpj2GSApTYPCzGkZ-FE3ICHn1xTuD0E-KyF7-GvDOAf-07jAYwnnD5wjbt4IPRaa8rhoiOrCn0t0hq8DXfacJCZF9mJllEVzFbX80NmT3ItCbkopeA3QjfJ1nskDfrj0UqoeeDM_6T312l_HQGfEZVZ-KF1F5IIytRT7YjLlVUif3Rm7kmC9A=w1280',
+      GS+'AA5AbUDEmQ02CpoOwh832zjuNM4x0HOM4dWEXwfLBdeikC4t3JjEV_cADFmD4wu5ffjGHkUme9v6soRmXFdYX7O-HdqBOAUN7f2dtV3VXOX-LsguLY5dxmjXbbYrrKt86Yp88E7_dvSU5PdTVJPBAIWExtyy7PMf7jsT4lSsJB8gRm_euqoDBwu1UKaz9lGqV3vrbYcAT3tvwBS-E7Q5ee69Zd-xLUbNdZ3lamM70sg=w1280',
+    ]
+  },
+  d4: {
+    images: [
+      GS+'AA5AbUDWgj-WsxxD2KCELwjFmyBD5jIb2h95xVM3iJMuu7T8CS8RJ9M8S19md42qZfx9fuGBsBWmsToNKWqvgEjCfz4AgtBf_aKx_IqHy4SrG55y2qJ_OmZE8VDBwHjQsosTmgJZqETCiHpaVEG1XYCSRVsvXaYrNcQNGrbH0sUupTl0Y30CDCkMAwdm6LGKsNI5hZsmTCrctMXSbJR9ZSQvcrBjC0s7gaqG7vnK0ZI=w1280',
+      GS+'AA5AbUBoq-pb2EovpfbFDYROV5C1YUVIHdYAFRzlZBma86C0xMN-t2Vl8qMX9pa-zjK7eYV_hlIq3JPUF2NwTfvtuY1JV4Wut_fnvhMmXMcwpYEfWynzP_Ikjf3RNtW4qbA3DIDGgDeJsq8ZqzcCkUAd0p6q1ucrSd-TYJykLzVvm5ZBIRZXQbHY3uJ8S2klkyl6xMVAIcs06w_Sq7Cnq01BpXUcf-AlHKyidDWW=w1280',
+      GS+'AA5AbUC7UV_dto3MK_ExXnpQPcP7MMdob6v4KElY-ioIpi0Pu3F6KkyLu-oT-C_1cd_1Q3pbdgsMQYN_xWb0HdH-kcjPJZMkEq4-t4I897cPG1irLDKpgCVyo6URMwv7nBeg6DR0E7eKmhrMU9cZVUz8HHsbT-fD8h_Wmi3FMQuVMuZfYKXglNJRgmpa1F8Xg8WzdIRIvrGk-5vn23qPFEMgaSqTpmj1nszmxqy=w1280',
+    ]
+  },
+  d5: {
+    images: [
+      GS+'AA5AbUDZQgv-3K6d_swKKy1PzWZ1O9I_4ebXNDyfvPSRSBwbDr2WpQnnXTmXy5Jy1lwpcMmmM-ZQJoMYAQyGf_tF9QwVI3aJPVTEtK50rBE1m4Q54qt0TiKdRz6FWuz7JzOdVe8wWUgA2-b1Z24Kx7Uw7LlI9ZdEKcwc8U7uDpot9hBc3rLUdi7TpE6ybA1fOf1Rfc-m3On9hM5mMjotQFqVLEI7qQ3aeue_SSoMc-o=w1280',
+      GS+'AA5AbUDmQpE_7O8hflqbUPF3_tyX8-OMtDNpZ1A5gYM3I3RyYBKMrhGAc5I5gWxmK4zR5YUbuTTCzlYtYlhKREM42xFn6DBjT4YHlrvLLT4-dF0fzdsR7Cy0JJst4kmT81qXp3scJl-JNcJWj_woyKmevs5Vylv4jqTGeRejOoo0Xhr9KWbCa-96foW7i8vfHRyjDN6WdNwf3D4jW3vOpsck_246D_pp5ntW2aA8=w1280',
+    ]
+  },
+  d6: {
+    images: [
+      GS+'AA5AbUCetYlEZZ-c5UavQ4tb1N8cv5WXO7mD96B43DVQPKJ6JYLR6omf0EC_Lms34rYpHOGFIi_nWt5le3DcF2lGO2xCBs_ns-JZKWHi2TcneNlh8X7xQ5OV76bfJPNbzsehp-NXYGpai4E4Qy-YwJMirAavi4AruFMxCtP8pRcOdgzH0YzEzY1QvsfWX-TWtkH0xZKPncR5-jCN1EcZyjHLV2W-rHIqOhTYGmfKJgc=w1280',
+      GS+'AA5AbUAnGBg1i-wJP99YAbB4KSh-4U-3UDuoIhDTrqzZ21pD8ShetJb6h1LgFRrzhaUncyQvMiKT3RmASooroHmsDj_m_OgNxGlgEnmD4N-cdkKNEWaoTR3zbqzGLUx8FOTQ0jEE-a1gJSUmGCeWbJg4ej8x03sogLkAEHOXK7_PhFuksm8hQJBLhdPHYmhx0SXtHFSUE_2Wf79_pXdS-2wp-BPAyy3vRpCAttji7mY=w1280',
+    ]
+  },
+  v1: {
+    images: [
+      GS+'AA5AbUDelA_2dBMFZigx9mPxcKJBvVAwV60pHKrhM7ZHDvpNljfy7cRdvVkNq38JwA2wajH6dN6WI3CgnEgpOwRjVXpCu53kuodCll4kOtxXNnv5SAVjzQmpToJwba75semnud64y2bcPXpwZDff8z-zAbKtMGhCmBQ8P1qh4x3D7cj1QVopPc58y3TP_9L2xA2wPMt05DVznJvTXHqoCPBHbPNGs6DXQKdTEW7EgRM=w1280',
+    ]
+  },
+  v2: {
+    images: [
+      GS+'AA5AbUDRsuqmcYKn6FLuCTyT2BPVjUZmYSlCrlA1gYih3DbQ79pcmKLZrDooy7fSzq9rVbnDbDYWne97HdoRBiPSqIC9qSsuMDDK06vfFcKdIGleclXWym63uFJMWh_iPoz2AkKYjp0jaaGQmWFA_q1tTtUXppcuktcngTR3DRdRXddsIbA9VYC8e2YV-pp2bJvlC0CwCC26PaBDwwxitrMa4-ZVZkcfcwA8UTve9Ac=w1280',
+    ]
+  },
+  v3: { images: [] },
+  p1: {
+    images: [],
+    link: 'https://unsplash.com/@litertor'
+  },
+  pr1: {
+    images: [
+      GS+'AA5AbUDmQpE_7O8hflqbUPF3_tyX8-OMtDNpZ1A5gYM3I3RyYBKMrhGAc5I5gWxmK4zR5YUbuTTCzlYtYlhKREM42xFn6DBjT4YHlrvLLT4-dF0fzdsR7Cy0JJst4kmT81qXp3scJl-JNcJWj_woyKmevs5Vylv4jqTGeRejOoo0Xhr9KWbCa-96foW7i8vfHRyjDN6WdNwf3D4jW3vOpsck_246D_pp5ntW2aA8=w1280',
+    ]
+  },
+};
+
 /* ── i18n ── */
 const translations = {
   ru: {
-    "hero.tag": "Мультимедиа · Дизайн · Видео",
+    "hero.tag": "Multimedia Specialist | Graphic Designer",
     "hero.title": "Liana Janina",
     "hero.desc": "Создаю визуальные истории. Специализируюсь на графическом дизайне, фотографии и работе с мультикультурным контентом.",
-    "hero.cta1": "Посмотреть работы",
-    "hero.cta2": "Связаться",
+    "hero.cta1": "Посмотреть работы", "hero.cta2": "Связаться",
     "about.tag": "Обо мне",
     "about.title": "Моя история: от хобби<br/>до профессии",
     "about.p1": "Я специалист в области мультимедиа и цифровых медиа с фокусом на графическом дизайне, видеопроизводстве, фотографии и веб-разработке.",
     "about.p2": "Моя сила — в деталях: правильный шрифт, точный цвет, ритм кадра. Работаю с брендами, создаю контент для разных культур и аудиторий.",
-    "about.p3": "Владею русским, английским и испанским — это даёт мне возможность работать с проектами из разных стран и культурных контекстов.",
-    "skill.design": "Графический дизайн",
-    "skill.video": "Видеомонтаж",
-    "skill.photo": "Фотография",
-    "skill.anim": "Анимация",
-    "skill.brand": "Брендинг",
-    "skill.social": "Соцсети / SMM",
-    "skill.sub": "Субтитры / Перевод",
-    "skill.pres": "Презентации",
-    "portfolio.tag": "Портфолио",
-    "portfolio.title": "Мои работы",
-    "portfolio.lead": "Проекты в области дизайна, видео, фотографии и презентаций.",
-    "tab.design": "Графический дизайн",
-    "tab.video": "Видео и анимация",
-    "tab.photo": "Фотография",
-    "tab.pres": "Презентации",
+    "about.p3": "Владею русским, английским, испанским и эстонским — это даёт мне возможность работать с проектами из разных стран и культурных контекстов.",
+    "skill.design": "Графический дизайн", "skill.video": "Видеомонтаж", "skill.photo": "Фотография",
+    "skill.anim": "Анимация", "skill.brand": "Брендинг", "skill.social": "Соцсети / SMM",
+    "skill.sub": "Субтитры / Перевод", "skill.pres": "Презентации",
+    "portfolio.tag": "Портфолио", "portfolio.title": "Мои работы",
+    "portfolio.lead": "Нажмите на карточку, чтобы посмотреть проект.",
+    "tab.design": "Графический дизайн", "tab.video": "Видео и анимация",
+    "tab.photo": "Фотография", "tab.pres": "Презентации",
     "d1.title": "Визитные карточки для цветочного",
     "d1.desc": "Яркий профессиональный дизайн с соблюдением фирменного стиля — привлекает внимание и остаётся в памяти.",
     "d2.title": "Casa Blanca Clean",
@@ -740,62 +513,34 @@ const translations = {
     "v2.desc": "Мобильный видеоконтент, адаптированный под формат сторис — динамично, аппетитно, вовлекающе.",
     "v3.title": "Перевод и субтитры",
     "v3.desc": "Авторские проекты по созданию субтитров и переводу видеоконтента — аккуратно, в ритм речи.",
-    "v4.title": "Семейный видеоархив",
-    "v4.desc": "Видеосъёмка и монтаж семейных событий: дни рождения, праздники, памятные моменты.",
     "p1.title": "Портфолио на Unsplash",
     "p1.desc": "Авторские фотографии, опубликованные в открытом доступе на платформе Unsplash.",
-    "p1.link": "Смотреть →",
-    "p2.title": "Предметная съёмка",
-    "p2.desc": "Фотографии для упаковки, брендинга и продуктовых карточек с вниманием к свету и деталям.",
-    "p3.title": "Атмосферные снимки",
-    "p3.desc": "Пейзажи и городские сцены — работа со светом, перспективой и настроением кадра.",
     "pr1.title": "Защита практики",
     "pr1.desc": "Комплексная презентация по итогам стажировки в детском центре дополнительного образования.",
-    "contact.tag": "Контакты",
-    "contact.title": "Давайте работать вместе",
+    "contact.tag": "Контакты", "contact.title": "Социальные сети",
     "contact.lead": "Открыта для новых проектов — пишите в любое удобное место.",
     "contact.email": "Email",
-    "tag.brand": "Брендинг",
-    "tag.identity": "Айдентика",
-    "tag.promo": "Промо",
-    "tag.packaging": "Упаковка",
-    "tag.logo": "Логотип",
-    "tag.smm": "SMM",
-    "tag.anim": "Анимация",
-    "tag.video": "Видео",
-    "tag.sub": "Субтитры",
-    "tag.edit": "Монтаж",
-    "tag.product": "Предметы",
-    "tag.photo2": "Пейзаж",
-    "tag.pres": "Презентация",
-    "footer.copy": "© 2024 Liana Janina. Все права защищены.",
+    "hint.open": "Открыть",
+    "modal.view-unsplash": "Смотреть на Unsplash →",
+    "footer.copy": "© 2025 Liana Janina. Все права защищены.",
   },
   en: {
-    "hero.tag": "Multimedia · Design · Video",
+    "hero.tag": "Multimedia Specialist | Graphic Designer",
     "hero.title": "Liana Janina",
     "hero.desc": "I craft visual stories. Specialising in graphic design, photography and multicultural content.",
-    "hero.cta1": "View my work",
-    "hero.cta2": "Get in touch",
+    "hero.cta1": "View my work", "hero.cta2": "Get in touch",
     "about.tag": "About me",
     "about.title": "My story: from hobby<br/>to profession",
     "about.p1": "I'm a multimedia and digital media specialist focused on graphic design, video production, photography and web development.",
     "about.p2": "My strength is in the details: the right typeface, the exact colour, the rhythm of a shot. I work with brands and create content for diverse cultures and audiences.",
-    "about.p3": "Fluent in Russian, English and Spanish — this allows me to work on projects from different countries and cultural contexts.",
-    "skill.design": "Graphic Design",
-    "skill.video": "Video Editing",
-    "skill.photo": "Photography",
-    "skill.anim": "Animation",
-    "skill.brand": "Branding",
-    "skill.social": "Social Media / SMM",
-    "skill.sub": "Subtitles / Translation",
-    "skill.pres": "Presentations",
-    "portfolio.tag": "Portfolio",
-    "portfolio.title": "My works",
-    "portfolio.lead": "Projects in design, video, photography and presentations.",
-    "tab.design": "Graphic Design",
-    "tab.video": "Video & Animation",
-    "tab.photo": "Photography",
-    "tab.pres": "Presentations",
+    "about.p3": "Fluent in Russian, English, Spanish and Estonian — this allows me to work on projects from different countries and cultural contexts.",
+    "skill.design": "Graphic Design", "skill.video": "Video Editing", "skill.photo": "Photography",
+    "skill.anim": "Animation", "skill.brand": "Branding", "skill.social": "Social Media / SMM",
+    "skill.sub": "Subtitles / Translation", "skill.pres": "Presentations",
+    "portfolio.tag": "Portfolio", "portfolio.title": "My works",
+    "portfolio.lead": "Click a card to view the project.",
+    "tab.design": "Graphic Design", "tab.video": "Video & Animation",
+    "tab.photo": "Photography", "tab.pres": "Presentations",
     "d1.title": "Business Cards for a Flower Shop",
     "d1.desc": "Vibrant, professional design maintaining brand consistency while capturing attention through refined visuals.",
     "d2.title": "Casa Blanca Clean",
@@ -814,62 +559,34 @@ const translations = {
     "v2.desc": "Mobile video content adapted for Stories format — dynamic, appetising and engaging.",
     "v3.title": "Translation & Subtitles",
     "v3.desc": "Personal projects creating subtitles and translating video content — precise and in sync with speech.",
-    "v4.title": "Family Video Archive",
-    "v4.desc": "Filming and editing family events: birthdays, holidays and memorable moments.",
     "p1.title": "Portfolio on Unsplash",
     "p1.desc": "Original photography published openly on the Unsplash platform.",
-    "p1.link": "View →",
-    "p2.title": "Product Photography",
-    "p2.desc": "Photos for packaging, branding and product cards with attention to light and detail.",
-    "p3.title": "Atmospheric Shots",
-    "p3.desc": "Landscapes and urban scenes — working with light, perspective and the mood of the frame.",
     "pr1.title": "Internship Defence",
     "pr1.desc": "A comprehensive presentation from the internship at a children's hobby centre.",
-    "contact.tag": "Contact",
-    "contact.title": "Let's work together",
+    "contact.tag": "Contact", "contact.title": "Social Media",
     "contact.lead": "Open to new projects — reach out wherever is most convenient.",
     "contact.email": "Email",
-    "tag.brand": "Branding",
-    "tag.identity": "Identity",
-    "tag.promo": "Promo",
-    "tag.packaging": "Packaging",
-    "tag.logo": "Logo",
-    "tag.smm": "SMM",
-    "tag.anim": "Animation",
-    "tag.video": "Video",
-    "tag.sub": "Subtitles",
-    "tag.edit": "Editing",
-    "tag.product": "Product",
-    "tag.photo2": "Landscape",
-    "tag.pres": "Presentation",
-    "footer.copy": "© 2024 Liana Janina. All rights reserved.",
+    "hint.open": "Open",
+    "modal.view-unsplash": "View on Unsplash →",
+    "footer.copy": "© 2025 Liana Janina. All rights reserved.",
   },
   es: {
-    "hero.tag": "Multimedia · Diseño · Video",
+    "hero.tag": "Multimedia Specialist | Graphic Designer",
     "hero.title": "Liana Janina",
     "hero.desc": "Creo historias visuales. Me especializo en diseño gráfico, fotografía y contenido multicultural.",
-    "hero.cta1": "Ver mis trabajos",
-    "hero.cta2": "Contactar",
+    "hero.cta1": "Ver mis trabajos", "hero.cta2": "Contactar",
     "about.tag": "Sobre mí",
     "about.title": "Mi historia: del hobby<br/>a la profesión",
     "about.p1": "Soy especialista en multimedia y medios digitales con enfoque en diseño gráfico, producción de video, fotografía y desarrollo web.",
     "about.p2": "Mi fortaleza está en los detalles: la tipografía correcta, el color exacto, el ritmo del plano. Trabajo con marcas y creo contenido para distintas culturas y audiencias.",
-    "about.p3": "Domino el ruso, el inglés y el español — esto me permite trabajar en proyectos de distintos países y contextos culturales.",
-    "skill.design": "Diseño Gráfico",
-    "skill.video": "Edición de Video",
-    "skill.photo": "Fotografía",
-    "skill.anim": "Animación",
-    "skill.brand": "Branding",
-    "skill.social": "Redes Sociales / SMM",
-    "skill.sub": "Subtítulos / Traducción",
-    "skill.pres": "Presentaciones",
-    "portfolio.tag": "Portafolio",
-    "portfolio.title": "Mis trabajos",
-    "portfolio.lead": "Proyectos de diseño, video, fotografía y presentaciones.",
-    "tab.design": "Diseño Gráfico",
-    "tab.video": "Video y Animación",
-    "tab.photo": "Fotografía",
-    "tab.pres": "Presentaciones",
+    "about.p3": "Domino el ruso, el inglés, el español y el estonio — esto me permite trabajar en proyectos de distintos países y contextos culturales.",
+    "skill.design": "Diseño Gráfico", "skill.video": "Edición de Video", "skill.photo": "Fotografía",
+    "skill.anim": "Animación", "skill.brand": "Branding", "skill.social": "Redes Sociales / SMM",
+    "skill.sub": "Subtítulos / Traducción", "skill.pres": "Presentaciones",
+    "portfolio.tag": "Portafolio", "portfolio.title": "Mis trabajos",
+    "portfolio.lead": "Haz clic en una tarjeta para ver el proyecto.",
+    "tab.design": "Diseño Gráfico", "tab.video": "Video y Animación",
+    "tab.photo": "Fotografía", "tab.pres": "Presentaciones",
     "d1.title": "Tarjetas de Visita para Floristería",
     "d1.desc": "Diseño vibrante y profesional que mantiene la coherencia de marca y capta la atención con visuales refinados.",
     "d2.title": "Casa Blanca Clean",
@@ -887,36 +604,17 @@ const translations = {
     "v2.title": "Video Promocional de Restaurante",
     "v2.desc": "Contenido de video móvil adaptado para Stories — dinámico, apetitoso y atractivo.",
     "v3.title": "Traducción y Subtítulos",
-    "v3.desc": "Proyectos personales de creación de subtítulos y traducción de contenido audiovisual — preciso y al ritmo del habla.",
-    "v4.title": "Archivo de Video Familiar",
-    "v4.desc": "Grabación y edición de eventos familiares: cumpleaños, festividades y momentos especiales.",
+    "v3.desc": "Proyectos personales de creación de subtítulos y traducción de contenido audiovisual.",
     "p1.title": "Portafolio en Unsplash",
     "p1.desc": "Fotografías originales publicadas en acceso abierto en la plataforma Unsplash.",
-    "p1.link": "Ver →",
-    "p2.title": "Fotografía de Producto",
-    "p2.desc": "Fotos para packaging, branding y fichas de producto con atención a la luz y los detalles.",
-    "p3.title": "Imágenes de Atmósfera",
-    "p3.desc": "Paisajes y escenas urbanas — trabajo con la luz, la perspectiva y el estado de ánimo del encuadre.",
     "pr1.title": "Defensa de Prácticas",
     "pr1.desc": "Presentación completa de la experiencia de prácticas en un centro infantil de actividades extracurriculares.",
-    "contact.tag": "Contacto",
-    "contact.title": "Trabajemos juntos",
+    "contact.tag": "Contacto", "contact.title": "Redes Sociales",
     "contact.lead": "Abierta a nuevos proyectos — escríbeme donde te sea más cómodo.",
     "contact.email": "Email",
-    "tag.brand": "Branding",
-    "tag.identity": "Identidad",
-    "tag.promo": "Promo",
-    "tag.packaging": "Packaging",
-    "tag.logo": "Logo",
-    "tag.smm": "SMM",
-    "tag.anim": "Animación",
-    "tag.video": "Video",
-    "tag.sub": "Subtítulos",
-    "tag.edit": "Edición",
-    "tag.product": "Producto",
-    "tag.photo2": "Paisaje",
-    "tag.pres": "Presentación",
-    "footer.copy": "© 2024 Liana Janina. Todos los derechos reservados.",
+    "hint.open": "Abrir",
+    "modal.view-unsplash": "Ver en Unsplash →",
+    "footer.copy": "© 2025 Liana Janina. Todos los derechos reservados.",
   }
 };
 
@@ -926,24 +624,11 @@ function applyLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
   const t = translations[lang];
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (t[key] !== undefined) el.textContent = t[key];
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const key = el.dataset.i18nHtml;
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
+  document.querySelectorAll('[data-i18n]').forEach(el => { if (t[el.dataset.i18n]) el.textContent = t[el.dataset.i18n]; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { if (t[el.dataset.i18nHtml]) el.innerHTML = t[el.dataset.i18nHtml]; });
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
 }
-
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-});
+document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
 
 /* ── TABS ── */
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -955,11 +640,74 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
+/* ── MODAL ── */
+const overlay = document.getElementById('modal-overlay');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const modalGallery = document.getElementById('modal-gallery');
+
+function openModal(card) {
+  const key = card.dataset.project;
+  const data = projects[key];
+  const t = translations[currentLang];
+
+  modalTitle.textContent = t[key + '.title'] || '';
+  modalDesc.textContent = t[key + '.desc'] || '';
+  modalGallery.innerHTML = '';
+
+  if (data.link) {
+    const a = document.createElement('a');
+    a.href = data.link;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = t['modal.view-unsplash'] || 'View on Unsplash →';
+    a.style.cssText = 'display:inline-block;padding:12px 24px;background:var(--accent);color:#0e0e10;border-radius:10px;font-weight:600;text-decoration:none;margin:0 28px 28px;';
+    modalGallery.appendChild(a);
+  }
+
+  if (data.images && data.images.length > 0) {
+    modalGallery.classList.toggle('single', data.images.length === 1);
+    data.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.addEventListener('click', e => { e.stopPropagation(); openLightbox(src); });
+      modalGallery.appendChild(img);
+    });
+  } else if (!data.link) {
+    modalGallery.innerHTML = '';
+  }
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.card').forEach(card => card.addEventListener('click', () => openModal(card)));
+document.getElementById('modal-close').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); closeModal(); } });
+
+/* ── LIGHTBOX ── */
+let lb = null;
+function openLightbox(src) {
+  lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.innerHTML = `<img src="${src}" alt="" />`;
+  lb.addEventListener('click', closeLightbox);
+  document.body.appendChild(lb);
+}
+function closeLightbox() { if (lb) { lb.remove(); lb = null; } }
+
 /* ── SCROLL REVEAL ── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
