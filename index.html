@@ -237,8 +237,9 @@
     footer .socials a:hover { color: var(--cream); border-color: rgba(247,229,217,0.4); }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s cubic-bezier(0.22,1,0.36,1), transform .65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.from-top { transform: translateY(-32px); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media(max-width:600px){
       nav { padding: 0 20px; }
@@ -907,10 +908,31 @@ function openLightbox(src) {
 function closeLightbox() { if (lb) { lb.remove(); lb = null; } }
 
 /* ── SCROLL REVEAL ── */
+/* ── SCROLL REVEAL ── */
+let lastY = window.scrollY;
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  const dir = window.scrollY > lastY ? 'down' : 'up';
+  lastY = window.scrollY;
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.remove('from-top');
+      e.target.classList.add('visible');
+    } else {
+      e.target.classList.remove('visible');
+      if (dir === 'up') e.target.classList.add('from-top');
+      else e.target.classList.remove('from-top');
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  if (el.classList.contains('card')) {
+    const siblings = el.parentElement.querySelectorAll('.card');
+    const idx = Array.from(siblings).indexOf(el);
+    el.style.transitionDelay = (idx * 0.08) + 's';
+  }
+  observer.observe(el);
+});
 
 </script>
 </body>
