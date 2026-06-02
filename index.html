@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Liana Janina — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600..900;1,6..96,600..900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
   <style>
+    @font-face {
+      font-family: 'Mudstone Sans Black';
+      src: url('assets/fonts/mudstone-sans-black.otf') format('opentype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -30,7 +37,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px; z-index: 100;
     }
-    .nav-logo { font-family: 'Bodoni Moda', serif; font-size: 1.35rem; font-weight: 600; color: var(--cream); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo { font-family: 'Mudstone Sans Black', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--cream); text-decoration: none; letter-spacing: 0.03em; }
     .nav-right { display: flex; align-items: center; gap: 20px; }
     .socials { display: flex; align-items: center; gap: 12px; }
     .socials a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: rgba(240,230,208,0.07); border: 1px solid rgba(240,230,208,0.14); color: rgba(240,230,208,0.6); transition: color .2s, background .2s, border-color .2s; text-decoration: none; }
@@ -45,7 +52,7 @@
     #hero { padding: calc(var(--nav-h) + 60px) 40px 80px; position: relative; overflow: hidden; background: var(--red); }
     .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(255,255,255,0.07) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 85%, rgba(0,0,0,0.25) 0%, transparent 60%); pointer-events: none; }
     .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,230,208,0.65); margin-bottom: 16px; }
-    h1 { font-family: 'Bodoni Moda', serif; font-size: clamp(6.5rem, 14vw, 13rem); font-weight: 800; font-style: italic; line-height: 0.88; margin-bottom: 16px; color: var(--cream); }
+    h1 { font-family: 'Mudstone Sans Black', sans-serif; font-size: clamp(6.5rem, 14vw, 13rem); font-weight: 900; line-height: 0.88; margin-bottom: 16px; color: var(--cream); }
     .hello-underline { width: 60px; height: 2px; background: rgba(240,230,208,0.45); border-radius: 2px; margin-bottom: 28px; }
     .intro-bio { font-size: 0.98rem; color: rgba(240,230,208,0.7); max-width: 500px; margin-bottom: 36px; line-height: 1.78; }
     .intro-cta { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -60,7 +67,7 @@
     .profile-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(240,230,208,0.18); border-radius: 20px; overflow: hidden; }
     .profile-photo-wrap { width: 100%; aspect-ratio: 3/4; background: var(--red-dark); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
     .profile-photo-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .profile-initials { font-family: 'Bodoni Moda', serif; font-size: 3.5rem; font-weight: 700; color: rgba(240,230,208,0.4); }
+    .profile-initials { font-family: 'Mudstone Sans Black', sans-serif; font-size: 3.5rem; font-weight: 900; color: rgba(240,230,208,0.4); }
     .profile-info { padding: 16px 18px 20px; }
     .profile-name-line { font-weight: 600; font-size: 0.96rem; color: var(--cream); margin-bottom: 12px; }
     .profile-meta-row { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: rgba(240,230,208,0.55); margin-bottom: 6px; }
@@ -92,7 +99,7 @@
     .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-header { margin-bottom: 56px; }
     .section-tag { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 12px; }
-    h2 { font-family: 'Bodoni Moda', serif; font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 800; line-height: 1.1; }
+    h2 { font-family: 'Mudstone Sans Black', sans-serif; font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 900; line-height: 1.1; }
     .section-lead { font-size: 0.97rem; max-width: 600px; margin-top: 12px; opacity: 0.62; }
 
     /* ── ABOUT (cream) ── */
@@ -138,7 +145,7 @@
     .modal { background: var(--cream); border: 1px solid rgba(28,10,13,0.1); border-radius: 20px; width: 100%; max-width: 860px; max-height: 90vh; overflow-y: auto; transform: translateY(20px); transition: transform .3s; }
     .modal-overlay.open .modal { transform: none; }
     .modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 28px 28px 0; }
-    .modal-title { font-family: 'Bodoni Moda', serif; font-size: 1.9rem; font-weight: 700; color: var(--ink); }
+    .modal-title { font-family: 'Mudstone Sans Black', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--ink); }
     .modal-close { width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(28,10,13,0.14); background: rgba(28,10,13,0.05); color: rgba(28,10,13,0.45); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: color .2s, border-color .2s; }
     .modal-close:hover { color: var(--ink); border-color: var(--red); }
     .modal-desc { padding: 12px 28px 20px; color: rgba(28,10,13,0.62); font-size: 0.95rem; line-height: 1.6; }
@@ -395,10 +402,7 @@
           </div>
         </div>
         <div class="card reveal" data-project="d3">
-          <div class="card-icon" style="background:linear-gradient(135deg,#0a2540 0%,#1a5276 60%,#2471a3 100%);flex-direction:column;gap:8px;">
-            <span style="font-size:2.4rem;line-height:1;">✈️</span>
-            <span style="color:rgba(255,255,255,0.85);font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Costa del Sol</span>
-          </div>
+          <div class="card-icon"><img src="assets/transfer/transfer-01.jpg" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="d3.title">Costa del Sol Transfer</div>
             <div class="card-desc" data-i18n="d3.desc">Рекламный макет трансфер-сервиса: акцент на преимуществах, комфорт и профессиональная подача.</div>
@@ -436,10 +440,7 @@
           </div>
         </div>
         <div class="card reveal" data-project="v2">
-          <div class="card-icon" style="background:linear-gradient(135deg,#2c0a00 0%,#7b2400 55%,#c0392b 100%);flex-direction:column;gap:8px;">
-            <span style="font-size:2.4rem;line-height:1;">🍷</span>
-            <span style="color:rgba(255,255,255,0.85);font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Promo Video</span>
-          </div>
+          <div class="card-icon"><img src="assets/promo-restaurant-cover.jpg" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="v2.title">Промо-видео для ресторана</div>
             <div class="card-desc" data-i18n="v2.desc">Мобильный видеоконтент, адаптированный под формат сторис — динамично, аппетитно, вовлекающе.</div>
@@ -447,10 +448,7 @@
           </div>
         </div>
         <div class="card reveal" data-project="v3">
-          <div class="card-icon" style="background:linear-gradient(135deg,#0d1b2a 0%,#1b4332 55%,#2d6a4f 100%);flex-direction:column;gap:8px;">
-            <span style="font-size:2.4rem;line-height:1;">🌍</span>
-            <span style="color:rgba(255,255,255,0.85);font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Subtitles</span>
-          </div>
+          <div class="card-icon"><img src="assets/subtitles-cover.jpg" alt="" loading="lazy" /></div>
           <div class="card-body">
             <div class="card-title" data-i18n="v3.title">Перевод и субтитры</div>
             <div class="card-desc" data-i18n="v3.desc">Авторские проекты по созданию субтитров и переводу видеоконтента — аккуратно, в ритм речи.</div>
@@ -558,12 +556,12 @@
 const projects = {
   d1: { images: ['assets/business-cards-1.png','assets/business-cards-2.png'] },
   d2: { images: ['assets/casa-blanca.jpg'] },
-  d3: { videos: ['1jhYs1y-dMBjHCtktJP9FuhJcWOOJJu1x'] },
+  d3: { images: ['assets/transfer/transfer-01.jpg','assets/transfer/transfer-02.jpg','assets/transfer/transfer-03.jpg'] },
   d4: { images: ['assets/monk-tea-1.png','assets/monk-tea-2.png','assets/monk-tea-3.png','assets/monk-tea-4.png','assets/monk-tea-5.png','assets/monk-tea-6.png','assets/monk-tea-7.png','assets/monk-tea-8.png','assets/monk-tea-9.png','assets/monk-tea-10.png'] },
   d5: { images: ['assets/salon-margo-1.png','assets/salon-margo-2.png','assets/salon-margo-3.png','assets/salon-margo-4.png','assets/salon-margo-5.png','assets/salon-margo-6.png','assets/salon-margo-7.png','assets/salon-margo-8.png'] },
   v1: { images: ['assets/invitations-cover.png','assets/invitations-1.png'], videos: ['1VNEqDnLSamnS3FLDBM4obMiAREKYnLG-'] },
-  v2: { videos: ['1jzGalfNRUjfEcconPaw4dHi-_X8DjPxM'] },
-  v3: { videos: ['1VKObE-EucqFkfjw3ODx9VjB7ppCK1szl','1tqurkgxw1-rOBNBlu7PEo-vrvi6atbuR'] },
+  v2: { images: ['assets/promo-restaurant-cover.jpg'], videos: ['1jzGalfNRUjfEcconPaw4dHi-_X8DjPxM'] },
+  v3: { images: ['assets/subtitles-cover.jpg'], videos: ['1VKObE-EucqFkfjw3ODx9VjB7ppCK1szl','1tqurkgxw1-rOBNBlu7PEo-vrvi6atbuR'] },
   p1: { images: [], link: 'https://unsplash.com/@litertor' },
   pr1: { images: ['assets/presentation-01.png','assets/presentation-02.png','assets/presentation-03.png','assets/presentation-04.png','assets/presentation-05.png','assets/presentation-06.png','assets/presentation-07.png','assets/presentation-08.png','assets/presentation-09.png','assets/presentation-10.png','assets/presentation-11.png','assets/presentation-12.png'] },
 };
