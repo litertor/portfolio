@@ -84,36 +84,34 @@
     .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,229,217,0.65); margin-bottom: 16px; }
     h1 {
       font-family: 'Onest', sans-serif; font-size: clamp(6.5rem, 14vw, 13rem); font-weight: 900; line-height: 0.88; margin-bottom: 16px;
-      background: linear-gradient(110deg, #C46200 0%, #FFD09A 20%, #F7E5D9 38%, #FFECD2 50%, #F7E5D9 62%, #FFD09A 80%, #C46200 100%);
-      background-size: 250% 100%;
+      background: linear-gradient(110deg, #F7E5D9 0%, #FFDDB8 28%, #F7E5D9 50%, #FFE8CC 72%, #F7E5D9 100%);
+      background-size: 300% 100%;
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      -webkit-animation: helloShimmer 4s linear infinite; animation: helloShimmer 4s linear infinite;
+      -webkit-animation: helloShimmer 7s ease-in-out infinite; animation: helloShimmer 7s ease-in-out infinite;
     }
     @-webkit-keyframes helloShimmer {
-      0%   { background-position: 100% 0; }
-      100% { background-position: -100% 0; }
+      0%,100% { background-position: 0% 0; }
+      50%     { background-position: 100% 0; }
     }
     @keyframes helloShimmer {
-      0%   { background-position: 100% 0; }
-      100% { background-position: -100% 0; }
+      0%,100% { background-position: 0% 0; }
+      50%     { background-position: 100% 0; }
     }
     .hello-underline { width: 60px; height: 2px; background: linear-gradient(90deg, rgba(247,229,217,0.7), rgba(247,229,217,0)); border-radius: 2px; margin-bottom: 28px; }
     .intro-bio { font-size: 0.98rem; color: rgba(247,229,217,0.7); max-width: 500px; margin-bottom: 36px; line-height: 1.78; }
     @media(min-width:861px) { .intro-bio { font-size: 1.18rem; line-height: 1.75; } }
     .intro-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary { padding: 13px 28px; background: var(--cream); color: var(--ink); font-weight: 600; font-size: 0.88rem; border-radius: 8px; border: none; cursor: pointer; text-decoration: none; font-family: 'Onest', sans-serif; -webkit-animation: btnBounce 2.8s ease-in-out infinite; animation: btnBounce 2.8s ease-in-out infinite; }
+    .btn-primary { padding: 13px 28px; background: var(--cream); color: var(--ink); font-weight: 600; font-size: 0.88rem; border-radius: 8px; border: none; cursor: pointer; text-decoration: none; font-family: 'Onest', sans-serif; -webkit-animation: btnBounce 3.5s ease-in-out infinite; animation: btnBounce 3.5s ease-in-out infinite; }
     .btn-primary:hover { opacity: 0.88; -webkit-animation: none; animation: none; transform: translateY(-2px); }
     @-webkit-keyframes btnBounce {
-      0%,50%,100% { -webkit-transform: translateY(0);   transform: translateY(0); }
-      58%          { -webkit-transform: translateY(-7px); transform: translateY(-7px); }
-      66%          { -webkit-transform: translateY(-2px); transform: translateY(-2px); }
-      74%          { -webkit-transform: translateY(-6px); transform: translateY(-6px); }
+      0%,40%,100% { -webkit-transform: translateY(0);   transform: translateY(0); }
+      55%         { -webkit-transform: translateY(-6px); transform: translateY(-6px); }
+      70%         { -webkit-transform: translateY(0);    transform: translateY(0); }
     }
     @keyframes btnBounce {
-      0%,50%,100% { transform: translateY(0); }
-      58%         { transform: translateY(-7px); }
-      66%         { transform: translateY(-2px); }
-      74%         { transform: translateY(-6px); }
+      0%,40%,100% { transform: translateY(0); }
+      55%         { transform: translateY(-6px); }
+      70%         { transform: translateY(0); }
     }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-secondary { padding: 13px 28px; background: transparent; color: var(--cream); font-weight: 500; font-size: 0.88rem; border-radius: 8px; border: 1px solid rgba(247,229,217,0.35); cursor: pointer; text-decoration: none; transition: border-color .2s, transform .2s; font-family: 'Onest', sans-serif; }
