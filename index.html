@@ -237,9 +237,9 @@
     footer .socials a:hover { color: var(--cream); border-color: rgba(247,229,217,0.4); }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s cubic-bezier(0.22,1,0.36,1), transform .65s cubic-bezier(0.22,1,0.36,1); }
-    .reveal.from-top { transform: translateY(-32px); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal { opacity: 0; transform: translateY(28px) scale(0.96); filter: blur(6px); transition: opacity .7s cubic-bezier(0.22,1,0.36,1), transform .7s cubic-bezier(0.22,1,0.36,1), filter .7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.from-top { transform: translateY(-28px) scale(0.96); }
+    .reveal.visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 
     @media(max-width:600px){
       nav { padding: 0 20px; }
