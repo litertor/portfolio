@@ -43,30 +43,37 @@
 
     /* ── HERO (red) ── */
     #hero { padding: calc(var(--nav-h) + 60px) 40px 80px; position: relative; overflow: hidden; background: var(--red); }
-    .hero-bg {
-      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-      background:
-        radial-gradient(ellipse 40% 50% at 65% 105%, rgba(60,10,0,0.7)  0%, transparent 55%),
-        radial-gradient(ellipse 30% 35% at 8%  95%,  rgba(0,0,0,0.3)    0%, transparent 50%);
+    .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+    .blob {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(ellipse, var(--blob-color) 0%, transparent 70%);
     }
-    .hero-bg::before {
-      content: ''; position: absolute;
+    .blob-1 {
+      --blob-color: rgba(230,110,0,0.55);
       width: 65%; height: 75%; top: -20%; right: -12%;
-      background: radial-gradient(ellipse, rgba(230,110,0,0.6) 0%, transparent 70%);
+      -webkit-animation: blob1 9s ease-in-out infinite;
       animation: blob1 9s ease-in-out infinite;
-      will-change: transform;
     }
-    .hero-bg::after {
-      content: ''; position: absolute;
-      width: 55%; height: 60%; bottom: -10%; left: -8%;
-      background: radial-gradient(ellipse, rgba(170,55,0,0.45) 0%, transparent 70%);
+    .blob-2 {
+      --blob-color: rgba(170,55,0,0.45);
+      width: 60%; height: 65%; bottom: -15%; left: -10%;
+      -webkit-animation: blob2 12s ease-in-out infinite;
       animation: blob2 12s ease-in-out infinite;
-      will-change: transform;
+    }
+    @-webkit-keyframes blob1 {
+      0%,100% { -webkit-transform: translate(0,0) scale(1); transform: translate(0,0) scale(1); }
+      30%     { -webkit-transform: translate(-6%,10%) scale(1.06); transform: translate(-6%,10%) scale(1.06); }
+      65%     { -webkit-transform: translate(9%,-7%) scale(0.94); transform: translate(9%,-7%) scale(0.94); }
     }
     @keyframes blob1 {
       0%,100% { transform: translate(0,0) scale(1); }
       30%     { transform: translate(-6%,10%) scale(1.06); }
       65%     { transform: translate(9%,-7%) scale(0.94); }
+    }
+    @-webkit-keyframes blob2 {
+      0%,100% { -webkit-transform: translate(0,0) scale(1); transform: translate(0,0) scale(1); }
+      35%     { -webkit-transform: translate(8%,-8%) scale(1.05); transform: translate(8%,-8%) scale(1.05); }
+      70%     { -webkit-transform: translate(-5%,9%) scale(0.96); transform: translate(-5%,9%) scale(0.96); }
     }
     @keyframes blob2 {
       0%,100% { transform: translate(0,0) scale(1); }
@@ -222,8 +229,8 @@
       footer { padding: 30px 20px; flex-direction: column; align-items: flex-start; }
       .modal-gallery { grid-template-columns: 1fr; }
       .modal-title { font-size: 1.5rem; }
-      .hero-bg::before { width: 80%; height: 50%; top: -15%; right: -15%; }
-      .hero-bg::after  { width: 70%; height: 45%; bottom: -10%; left: -15%; }
+      .blob-1 { width: 90%; height: 55%; }
+      .blob-2 { width: 80%; height: 50%; }
     }
   </style>
 </head>
@@ -254,7 +261,7 @@
 
 <!-- ══════════ HERO ══════════ -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
   <div class="intro-wrap">
 
     <!-- Top: greeting + profile card -->
