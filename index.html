@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if('scrollRestoration'in history)history.scrollRestoration='manual';window.scrollTo(0,0);document.body&&(document.body.scrollTop=0);</script>
   <title>Liana Janina — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -98,14 +99,18 @@
     .intro-wrap { max-width: 1100px; margin: 0 auto; position: relative; }
     .intro-top { display: grid; grid-template-columns: 1fr 250px; gap: 52px; align-items: start; margin-bottom: 68px; }
     /* profile card */
-    .profile-card { background: var(--cream); border: 1px solid rgba(26,10,0,0.1); border-radius: 20px; overflow: hidden; -webkit-animation: floatCard 5s ease-in-out infinite; animation: floatCard 5s ease-in-out infinite; }
+    .profile-card { background: var(--cream); border: 1px solid rgba(26,10,0,0.1); border-radius: 20px; overflow: hidden; -webkit-animation: floatCard 3.2s cubic-bezier(0.37,0,0.63,1) infinite; animation: floatCard 3.2s cubic-bezier(0.37,0,0.63,1) infinite; }
     @-webkit-keyframes floatCard {
-      0%,100% { -webkit-transform: translateY(0); transform: translateY(0); box-shadow: 0 8px 32px rgba(26,10,0,0.18); }
-      50%     { -webkit-transform: translateY(-12px); transform: translateY(-12px); box-shadow: 0 22px 48px rgba(26,10,0,0.25); }
+      0%,100% { -webkit-transform: translateY(0);     transform: translateY(0);     box-shadow: 0 8px 24px rgba(26,10,0,0.2); }
+      40%     { -webkit-transform: translateY(-22px);  transform: translateY(-22px);  box-shadow: 0 28px 52px rgba(26,10,0,0.28); }
+      55%     { -webkit-transform: translateY(-18px);  transform: translateY(-18px);  box-shadow: 0 24px 46px rgba(26,10,0,0.25); }
+      70%     { -webkit-transform: translateY(-22px);  transform: translateY(-22px);  box-shadow: 0 28px 52px rgba(26,10,0,0.28); }
     }
     @keyframes floatCard {
-      0%,100% { transform: translateY(0);    box-shadow: 0 8px 32px rgba(26,10,0,0.18); }
-      50%     { transform: translateY(-12px); box-shadow: 0 22px 48px rgba(26,10,0,0.25); }
+      0%,100% { transform: translateY(0);    box-shadow: 0 8px 24px rgba(26,10,0,0.2); }
+      40%     { transform: translateY(-22px); box-shadow: 0 28px 52px rgba(26,10,0,0.28); }
+      55%     { transform: translateY(-18px); box-shadow: 0 24px 46px rgba(26,10,0,0.25); }
+      70%     { transform: translateY(-22px); box-shadow: 0 28px 52px rgba(26,10,0,0.28); }
     }
     .profile-photo-wrap { width: 100%; aspect-ratio: 3/4; background: var(--red-dark); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
     .profile-photo-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
@@ -803,9 +808,11 @@ applyLang('en');
 
 /* ── SCROLL RESTORE FIX ── */
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-window.scrollTo(0, 0);
-window.addEventListener('load', () => { window.scrollTo(0, 0); setTimeout(() => window.scrollTo(0, 0), 50); });
-window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+function goTop() { window.scrollTo(0, 0); document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }
+goTop();
+if (location.hash) history.replaceState(null, '', location.pathname);
+window.addEventListener('load', () => { goTop(); setTimeout(goTop, 100); setTimeout(goTop, 300); });
+window.addEventListener('pageshow', goTop);
 
 /* ── TABS ── */
 document.querySelectorAll('.tab-btn').forEach(btn => {
