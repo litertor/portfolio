@@ -201,6 +201,9 @@
       footer { padding: 30px 20px; flex-direction: column; align-items: flex-start; }
       .modal-gallery { grid-template-columns: 1fr; }
       .modal-title { font-size: 1.5rem; }
+      .hero-bg { background:
+        radial-gradient(ellipse 70% 40% at 100% 0%,  rgba(220,100,0,0.5)  0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 50% 100%, rgba(90,20,0,0.5)    0%, transparent 55%); }
     }
   </style>
 </head>
@@ -800,7 +803,7 @@ function openModal(card) {
     a.target = '_blank';
     a.rel = 'noopener';
     a.textContent = t['modal.view-unsplash'] || 'View on Unsplash →';
-    a.style.cssText = 'display:inline-block;padding:12px 24px;background:var(--accent);color:#0e0e10;border-radius:10px;font-weight:600;text-decoration:none;margin:0 28px 28px;';
+    a.style.cssText = 'display:inline-block;padding:11px 22px;background:var(--red);color:var(--cream);border-radius:8px;font-weight:600;font-size:0.88rem;text-decoration:none;margin:4px 0 28px 28px;';
     modalGallery.appendChild(a);
   }
 
