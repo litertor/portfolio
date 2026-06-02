@@ -118,7 +118,7 @@
     .modal-gallery.single { grid-template-columns: 1fr; }
     .modal-gallery.single img { max-height: 70vh; object-fit: contain; cursor: default; }
     .modal-gallery.single img:hover { transform: none; }
-    .modal-video { width: 100%; aspect-ratio: 16/9; border-radius: 10px; border: 1px solid var(--border); display: block; background: #000; }
+    .modal-video { width: 100%; aspect-ratio: 16/9; border-radius: 10px; border: 1px solid var(--border); display: block; background: #000; grid-column: 1 / -1; min-height: 360px; }
 
     /* lightbox */
     .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 300; display: flex; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
@@ -279,14 +279,6 @@
             <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
           </div>
         </div>
-        <div class="card reveal" data-project="d6">
-          <div class="card-icon" style="font-size:2.5rem; display:flex; align-items:center; justify-content:center;">📱</div>
-          <div class="card-body">
-            <div class="card-title" data-i18n="d6.title">Реклама в соцсетях</div>
-            <div class="card-desc" data-i18n="d6.desc">Промо-макеты для Instagram и Facebook — акции, спецпредложения, оформление ленты под стиль бренда.</div>
-            <span class="card-open-hint" data-i18n="hint.open">Открыть</span>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -421,7 +413,6 @@ const projects = {
   d3: { videos: ['1jhYs1y-dMBjHCtktJP9FuhJcWOOJJu1x'] },
   d4: { images: ['assets/monk-tea-1.png','assets/monk-tea-2.png','assets/monk-tea-3.png','assets/monk-tea-4.png','assets/monk-tea-5.png','assets/monk-tea-6.png','assets/monk-tea-7.png','assets/monk-tea-8.png','assets/monk-tea-9.png','assets/monk-tea-10.png'] },
   d5: { images: ['assets/salon-margo-1.png','assets/salon-margo-2.png','assets/salon-margo-3.png','assets/salon-margo-4.png','assets/salon-margo-5.png','assets/salon-margo-6.png','assets/salon-margo-7.png','assets/salon-margo-8.png'] },
-  d6: { images: [] },
   v1: { images: ['assets/invitations-cover.png','assets/invitations-1.png'], videos: ['1VNEqDnLSamnS3FLDBM4obMiAREKYnLG-'] },
   v2: { videos: ['1jzGalfNRUjfEcconPaw4dHi-_X8DjPxM'] },
   v3: { videos: ['1VKObE-EucqFkfjw3ODx9VjB7ppCK1szl','1tqurkgxw1-rOBNBlu7PEo-vrvi6atbuR'] },
@@ -458,8 +449,6 @@ const translations = {
     "d4.desc": "Серия дизайна этикеток с продуманной цветовой палитрой, типографикой и авторскими иллюстрациями.",
     "d5.title": "Salon de Margo — логотип",
     "d5.desc": "Несколько элегантных вариаций логотипа в фирменных цветах салона, отражающих современную эстетику.",
-    "d6.title": "Реклама в соцсетях",
-    "d6.desc": "Промо-макеты для Instagram и Facebook — акции, спецпредложения, оформление ленты под стиль бренда.",
     "v1.title": "Детские приглашения (ES)",
     "v1.desc": "Приглашения на вечеринки на испанском языке с ярким персонажным дизайном и лёгкой анимацией.",
     "v2.title": "Промо-видео для ресторана",
@@ -504,8 +493,6 @@ const translations = {
     "d4.desc": "A series of label designs featuring a refined colour palette, typography and custom illustrations.",
     "d5.title": "Salon de Margo — Logo",
     "d5.desc": "Multiple elegant logo variations in the salon's brand colours, reflecting a modern aesthetic.",
-    "d6.title": "Social Media Advertising",
-    "d6.desc": "Promotional layouts for Instagram and Facebook — offers, deals and feed design aligned with brand style.",
     "v1.title": "Children's Invitations (ES)",
     "v1.desc": "Party invitations in Spanish with playful character design and light animation.",
     "v2.title": "Restaurant Promo Video",
@@ -550,8 +537,6 @@ const translations = {
     "d4.desc": "Serie de diseños de etiquetas con paleta de colores cuidada, tipografía e ilustraciones originales.",
     "d5.title": "Salon de Margo — Logo",
     "d5.desc": "Múltiples variaciones elegantes del logotipo en los colores corporativos del salón, con estética contemporánea.",
-    "d6.title": "Publicidad en Redes Sociales",
-    "d6.desc": "Piezas promocionales para Instagram y Facebook — ofertas, promociones y diseño de feed alineado a la marca.",
     "v1.title": "Invitaciones Infantiles (ES)",
     "v1.desc": "Invitaciones de fiesta en español con diseño de personajes divertido y animación ligera.",
     "v2.title": "Video Promocional de Restaurante",
